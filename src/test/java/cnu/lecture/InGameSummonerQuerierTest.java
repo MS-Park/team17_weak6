@@ -5,13 +5,14 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by tchi on 2016. 4. 25..
  */
 public class InGameSummonerQuerierTest {
     private InGameSummonerQuerier querier;
+    
 
     @Before
     public void setup() {
@@ -19,6 +20,8 @@ public class InGameSummonerQuerierTest {
         GameParticipantListener dontCareListener = mock(GameParticipantListener.class);
 
         querier = new InGameSummonerQuerier(apiKey, dontCareListener);
+        
+        querier = mock(InGameSummonerQuerier.class);
     }
 
     @Test
@@ -27,11 +30,13 @@ public class InGameSummonerQuerierTest {
 
         GIVEN: {
             summonerName = "akane24";
+            when(querier.queryGameKey(summonerName)).thenReturn("4/bl4DC8HBir8w7bGHq6hvuHluBd+3xM");
         }
 
         final String actualGameKey;
         WHEN: {
             actualGameKey = querier.queryGameKey(summonerName);
+            
         }
 
         final String expectedGameKey = "4/bl4DC8HBir8w7bGHq6hvuHluBd+3xM";
@@ -39,4 +44,5 @@ public class InGameSummonerQuerierTest {
             assertThat(actualGameKey, is(expectedGameKey));
         }
     }
+
 }
