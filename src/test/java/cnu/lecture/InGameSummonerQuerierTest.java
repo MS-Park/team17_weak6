@@ -9,6 +9,7 @@ import static org.mockito.Mockito.*;
 
 public class InGameSummonerQuerierTest {
     private InGameSummonerQuerier querier;
+    
 
     public void setup() {
         final String apiKey = "8242f154-342d-4b86-9642-dfa78cdb9d9c";
@@ -30,15 +31,12 @@ public class InGameSummonerQuerierTest {
         final String actualGameKey;
         WHEN: {
             actualGameKey = querier.queryGameKey(summonerName);
+            
         }
 
         final String expectedGameKey = "4/bl4DC8HBir8w7bGHq6hvuHluBd+3xM";
         THEN: {
             assertThat(actualGameKey, is(expectedGameKey));
         }
-    }
-    public void shouldQuerierReportMoreThan5Summoners() throws Exception{
-    	final int summonerNumber;
-   
     }
 }
