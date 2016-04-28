@@ -7,14 +7,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by tchi on 2016. 4. 25..
- */
 public class InGameSummonerQuerierTest {
     private InGameSummonerQuerier querier;
     
 
-    @Before
     public void setup() {
         final String apiKey = "8242f154-342d-4b86-9642-dfa78cdb9d9c";
         GameParticipantListener dontCareListener = mock(GameParticipantListener.class);
@@ -24,7 +20,6 @@ public class InGameSummonerQuerierTest {
         querier = mock(InGameSummonerQuerier.class);
     }
 
-    @Test
     public void shouldQuerierIdentifyGameKeyWhenSpecificSummonerNameIsGiven() throws Exception {
         final String summonerName;
 
@@ -44,5 +39,7 @@ public class InGameSummonerQuerierTest {
             assertThat(actualGameKey, is(expectedGameKey));
         }
     }
-
+    public void shouldQuerierReportMoreThan5Summoners() throws Exception {
+    	final int summonerNumber;
+    }
 }

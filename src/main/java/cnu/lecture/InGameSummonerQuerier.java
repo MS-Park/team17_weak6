@@ -19,9 +19,6 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/**
- * Created by tchi on 2016. 4. 25..
- */
 public class InGameSummonerQuerier {
     private final String apiKey;
     private final GameParticipantListener listener;
