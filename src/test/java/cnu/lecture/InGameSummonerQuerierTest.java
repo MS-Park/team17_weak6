@@ -39,4 +39,7 @@ public class InGameSummonerQuerierTest {
             assertThat(actualGameKey, is(expectedGameKey));
         }
     }
+    public void shouldQuerierReportMoreThan5Summoners() throws Exception {
+    	final int summonerNumber;
+    }
 }
