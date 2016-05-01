@@ -40,6 +40,21 @@ public class InGameSummonerQuerierTest {
         }
     }
     public void shouldQuerierReportMoreThan5Summoners() throws Exception {
-    	final int summonerNumber;
+    	final InGameInfo inGameInfo;
+        
+    	GIVEN:{
+            inGameInfo = mock(InGameInfo.class);
+            when(inGameInfo.getParticipants()).thenReturn(getParticipants().length);
+    	}
+    	
+    	final int actualParticipants;
+        WHEN: {
+            actualParticipants = inGameInfo.getParticipants();
+        }
+    	
+    	final int expectedParticipants = 4;
+    	THEN: {
+        	assertTrue(actualParticipants >= expectedParticipants);
+        }
     }
 }
