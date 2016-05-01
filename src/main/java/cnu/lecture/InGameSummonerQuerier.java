@@ -52,7 +52,7 @@ public class InGameSummonerQuerier {
         
         return summonerId;
     }
-    private InGameInfo getInGameInfo(String summonerId) {
+    private InGameInfo getInGameInfo(String summonerId) throws IOException {
         HttpUriRequest inGameRequest = buildObserverHttpRequest(summonerId);
         HttpResponse inGameResponse = client.execute(inGameRequest);
         Gson inGameGson = new Gson();
